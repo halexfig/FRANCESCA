@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uruguay en los años 60: Un viaje histórico</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--secondary);
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 1rem 2rem;
+            background-color: var(--light);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .tab:hover {
+            background-color: #d6dbdf;
+        }
+        
+        .tab.active {
+            background-color: var(--secondary);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--secondary);
+        }
+        
+        .card h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 0.5rem;
+        }
+        
+        .card h3 {
+            color: var(--secondary);
+            margin: 1.5rem 0 1rem 0;
+        }
+        
+        .highlight {
+            background-color: #fff9c4;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border-left: 4px solid #fbc02d;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--secondary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .question {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .question h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .option {
+            padding: 1rem;
+            background-color: var(--light);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .option:hover {
+            background-color: #d6dbdf;
+        }
+        
+        .option.selected {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .results {
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+        
+        .score-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin: 1rem 0;
+        }
+        
+        .recommendation {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary);
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .caption {
+            font-style: italic;
+            margin-top: 0.5rem;
+            color: #666;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .consequences {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .consequence-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--accent);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                width: 100%;
+                border-radius: 0;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .options {
+                grid-template-columns: 1fr;
+            }
+            
+            .consequences {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Uruguay en la Década de 1960</h1>
+        <p class="subtitle">Un viaje por la historia uruguaya para estudiantes</p>
+    </header>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" data-tab="intro">Introducción</button>
+            <button class="tab" data-tab="crisis">La Crisis</button>
+            <button class="tab" data-tab="cide">La CIDE</button>
+            <button class="tab" data-tab="sindicatos">Movimiento Sindical</button>
+            <button class="tab" data-tab="tupamaros">Tupamaros</button>
+            <button class="tab" data-tab="consecuencias">Consecuencias</button>
+            <button class="tab" data-tab="cuestionario">Cuestionario</button>
+        </div>
+        
+        <div id="intro" class="tab-content active">
+            <div class="card">
+                <h2>¡Bienvenidos al Uruguay de los años 60!</h2>
+                
+                <div class="image-container">
+                    <img src="https://ecosdelhum.com.uy/download/multimedia.normal.a379fa4dd48d1042.RGVjYWRhNjBfbm9ybWFsLndlYnA%3D.webp" alt="Uruguay en la década de 1960">
+                    <p class="caption">El Uruguay de los años 60: una época de cambios y desafíos</p>
+                </div>
+                
+                <p>Hola, soy tu profesor de historia. Hoy vamos a viajar en el tiempo para conocer cómo era Uruguay en la década de 1960. Imaginen que tienen una máquina del tiempo que nos lleva a más de 60 años atrás, cuando sus abuelos o bisabuelos eran jóvenes.</p>
+                
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/736x/e6/aa/4e/e6aa4e0299772c5087f0ecdeee5747e5.jpg" alt="Montevideo en los años 60">
+                    <p class="caption">Así se veían las calles de Montevideo en esa época</p>
+                </div>
+                
+                <p>En los años 50, Uruguay era considerado un país próspero, a veces llamado la "Suiza de América" por su estabilidad económica y su sistema de bienestar. Pero en los años 60, esta situación comenzó a cambiar drásticamente. Vamos a descubrir por qué.</p>
+                
+                <div class="highlight">
+                    <h3>¿Qué vamos a aprender?</h3>
+                    <ul>
+                        <li>Por qué Uruguay entró en crisis después de los prósperos años 50</li>
+                        <li>Las diferentes soluciones que se propusieron para salir de la crisis</li>
+                        <li>Los fuertes conflictos que ocurrieron en la década del 60</li>
+                        <li>Cómo el autoritarismo del gobierno llevó a una dictadura</li>
+                        <li>Las consecuencias que todavía sentimos hoy</li>
+                    </ul>
+                </div>
+                
+                <h3>El contexto mundial</h3>
+                <p>Para entender lo que pasaba en Uruguay, es importante saber qué ocurría en el mundo en esa época:</p>
+                <ul>
+                    <li>La <strong>Guerra Fría</strong> entre Estados Unidos y la Unión Soviética influía en todos los países</li>
+                    <li>La <strong>Revolución Cubana</strong> de 1959 inspiró a muchos movimientos en América Latina</li>
+                    <li>En muchos países había tensiones entre diferentes formas de pensar cómo organizar la sociedad</li>
+                    <li>Los jóvenes en todo el mundo comenzaban a cuestionar la autoridad y buscar cambios</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="crisis" class="tab-content">
+            <div class="card">
+                <h2>Uruguay busca salidas a la crisis</h2>
+                <p>En 1962, el Partido Nacional ganó las elecciones y formó el <strong>segundo colegiado blanco (1963-1967)</strong>. Para entender la crisis, el gobierno creó la <strong>Comisión de Investigación y Desarrollo Económico (CIDE)</strong>.</p>
+                
+                <h3>¿Por qué Uruguay estaba en crisis?</h3>
+                <p>Imaginen que Uruguay era como una familia que antes tenía mucho dinero, pero de repente empezó a tener problemas económicos. Las razones principales eran:</p>
+                
+                <div class="highlight">
+                    <h4>Problemas en el campo (agro)</h4>
+                    <p>Había dos tipos de problemas con la tierra:</p>
+                    <ul>
+                        <li><strong>Latifundio:</strong> Grandes extensiones de tierra en pocas manos que no se usaban eficientemente</li>
+                        <li><strong>Minifundio:</strong> Pequeñas parcelas de tierra que no daban para vivir bien</li>
+                    </ul>
+                    <p>Esto hacía que los dueños de tierras no invirtieran en mejorar la producción.</p>
+                </div>
+                
+                <div class="highlight">
+                    <h4>Industria anticuada</h4>
+                    <p>Las fábricas uruguayas usaban máquinas viejas y no aplicaban tecnología moderna. Era como si hoy usáramos teléfonos de hace 30 años: no podríamos competir con otros países.</p>
+                </div>
+                
+                <div class="highlight">
+                    <h4>Demasiados empleados públicos</h4>
+                    <p>El Estado gastaba mucho dinero en pagar salarios a un número muy grande de funcionarios públicos, lo que dejaba poco presupuesto para otras cosas importantes.</p>
+                </div>
+                
+                <div class="image-container">
+                    <img src="https://brecha.com.uy/wp-content/webp-express/webp-images/uploads/2023/06/05-01-w-messina-y-moeira-chelle-PICT0755.jpg.webp" alt="Crisis bancaria en Uruguay">
+                    <p class="caption">La crisis bancaria de 1965 afectó a miles de uruguayos que perdieron sus ahorros</p>
+                </div>
+                
+                <h3>La crisis se profundiza</h3>
+                <p>En 1965, la situación empeoró mucho cuando varios bancos quebraron. Miles de personas perdieron sus ahorros de toda la vida. Esto generó desconfianza en el sistema financiero y mucho malestar social.</p>
+                
+                <h3>Nuevos grupos políticos</h3>
+                <p>En esta época surgieron nuevos partidos y alianzas políticas:</p>
+                <ul>
+                    <li><strong>Frente Izquierda de Liberación (Fidel):</strong> Alianza liderada por el Partido Comunista</li>
+                    <li><strong>Unión Popular (UP):</strong> Formada por socialistas y disidentes del Partido Nacional</li>
+                    <li><strong>Partido Demócrata Cristiano (PDC):</strong> Sector progresista que se separó de la Unión Cívica</li>
+                </ul>
+                
+                <div class="image-container">
+                    <img src="https://imgs.elpais.com.uy/dims4/default/d86c451/2147483647/strip/true/crop/1024x704+0+14/resize/1440x990!/format/webp/quality/90/?url=https%3A%2F%2Fel-pais-uruguay-production-web.s3.us-east-1.amazonaws.com%2Fbrightspot%2Fuploads%2F2019%2F08%2F02%2F5d44bdd051b18.jpeg" alt="Elecciones en Uruguay">
+                    <p class="caption">Las elecciones eran momentos importantes para decidir el futuro del país</p>
+                </div>
+                
+                <p>El censo de 1963 mostró que Uruguay tenía 2.595.600 habitantes, menos de lo que se creía. ¡El último censo había sido en 1908!</p>
+            </div>
+        </div>
+        
+        <div id="cide" class="tab-content">
+            <div class="card">
+                <h2>El proyecto de la CIDE y su fracaso</h2>
+                <p>La Comisión de Investigación y Desarrollo Económico (CIDE) hizo un estudio muy completo sobre la situación de Uruguay y propuso un plan para mejorar el país en 10 años.</p>
+                
+                <h3>¿Qué proponía el plan de la CIDE?</h3>
+                <p>El plan era como una receta para mejorar la economía uruguaya. Incluía:</p>
+                <ul>
+                    <li>Modernizar la agricultura y la industria</li>
+                    <li>Fomentar las exportaciones</li>
+                    <li>Reducir el gasto público innecesario</li>
+                    <li>Invertir en educación y tecnología</li>
+                    <li>Promover una reforma agraria para distribuir mejor la tierra</li>
+                </ul>
+                
+                <div class="highlight">
+                    <h4>¿Por qué era necesario el acuerdo de todos?</h4>
+                    <p>La CIDE decía que para que el plan funcionara, todos los sectores tenían que colaborar:</p>
+                    <ul>
+                        <li><strong>Los empresarios</strong> debían invertir en el país en lugar de guardar el dinero en el extranjero</li>
+                        <li><strong>Los trabajadores</strong> debían aceptar ciertos sacrificios a corto plazo para mejorar a largo plazo</li>
+                        <li><strong>El gobierno</strong> debía planificar cuidadosamente todas las medidas</li>
+                    </ul>
+                    <p>Era como un equipo de fútbol donde todos los jugadores deben trabajar juntos para ganar el partido.</p>
+                </div>
+                
+                <h3>¿Por qué fracasó el plan?</h3>
+                <p>Aunque el plan de la CIDE era muy bueno en el papel, no se pudo aplicar porque:</p>
+                <ul>
+                    <li>Había desacuerdos dentro del gobierno</li>
+                    <li>Los ganaderos no quisieron invertir en mejorar sus tierras</li>
+                    <li>Los comerciantes y banqueros prefirieron guardar su dinero en el extranjero</li>
+                    <li>Los trabajadores, preocupados por sus empleos y salarios, organizaron protestas a través de los sindicatos</li>
+                    <li>Ningún grupo quería ceder en sus privilegios o derechos</li>
+                </ul>
+                
+                <div class="highlight">
+                    <h4>Reflexión histórica</h4>
+                    <p>El fracaso del plan de la CIDE muestra lo difícil que es ponerse de acuerdo cuando cada grupo piensa primero en sus propios intereses. En una democracia, es importante buscar soluciones que beneficien a todos, aunque eso signifique que cada uno tenga que ceder un poco.</p>
+                </div>
+                
+                <h3>Consecuencias del fracaso</h3>
+                <p>Al no aplicarse el plan de la CIDE:</p>
+                <ul>
+                    <li>La crisis económica empeoró</li>
+                    <li>La inflación (aumento de precios) se disparó</li>
+                    <li>El descontento social aumentó</li>
+                    <li>Muchos uruguayos comenzaron a perder fe en la democracia</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="sindicatos" class="tab-content">
+            <div class="card">
+                <h2>El movimiento sindical en la vida política</h2>
+                <p>En 1965, la situación empeoró cuando muchos bancos quebraron y miles de personas perdieron sus ahorros. Esto generó mucha preocupación y enojo en la población.</p>
+                
+                <h3>La Convención Nacional de Trabajadores (CNT)</h3>
+                <p>Entre 1964 y 1966, los trabajadores de diferentes sectores se unieron en una sola organización sindical: la <strong>Convención Nacional de Trabajadores (CNT)</strong>.</p>
+                
+                <p>Imaginen que en su escuela, todos los cursos se juntan para defender sus derechos. Así funcionaba la CNT: unía a obreros, empleados, docentes, pequeños productores rurales y jubilados.</p>
+                
+                <div class="image-container">
+                    <img src="https://www.juntamvd.gub.uy/public/uploads/noticias/50_anos_huelga_web_1200w.jpg" alt="Movimiento sindical en Uruguay">
+                    <p class="caption">Los trabajadores se organizaban para defender sus derechos y buscar soluciones a la crisis</p>
+                </div>
+                
+                <div class="highlight">
+                    <h4>El Congreso del Pueblo</h4>
+                    <p>La CNT organizó el <strong>Congreso del Pueblo</strong>, una gran reunión donde representantes de diferentes sectores buscaron soluciones a la crisis. Las propuestas principales fueron:</p>
+                    <ul>
+                        <li><strong>Reforma agraria:</strong> Distribuir la tierra de manera más justa</li>
+                        <li><strong>Nacionalización de la banca:</strong> Que los bancos estuvieran controlados por el Estado con capitales nacionales</li>
+                        <li>Mejoras en los salarios y condiciones de trabajo</li>
+                        <li>Control de precios de los productos básicos</li>
+                    </ul>
+                </div>
+                
+                <h3>¿Qué logró el movimiento sindical?</h3>
+                <p>Aunque el programa del Congreso del Pueblo no se aplicó, marcó un hito importante:</p>
+                <ul>
+                    <li>Mostró que los sectores populares querían participar en las decisiones del país</li>
+                    <li>Demostró la fuerza de la organización de los trabajadores</li>
+                    <li>Planteó soluciones que años después serían retomadas</li>
+                    <li>Consiguió mejoras salariales para algunos sectores</li>
+                </ul>
+                
+                <h3>La respuesta del gobierno</h3>
+                <p>Frente al crecimiento del movimiento sindical, el gobierno respondió con:</p>
+                <ul>
+                    <li>Mayor control sobre las actividades sindicales</li>
+                    <li>Restricciones al derecho de huelga</li>
+                    <li>Intervención en algunos sindicatos</li>
+                    <li>Represión de manifestaciones</li>
+                </ul>
+                
+                <p>El movimiento sindical se convirtió en un actor importante en la vida política uruguaya, representando los intereses de los trabajadores frente al gobierno y los empresarios.</p>
+            </div>
+        </div>
+        
+        <div id="tupamaros" class="tab-content">
+            <div class="card">
+                <h2>El surgimiento del MLN-Tupamaros</h2>
+                <p>A principios de los años 60, inspirados por la Revolución Cubana, algunos grupos de izquierda pensaron que la única manera de lograr cambios profundos en Uruguay era mediante la lucha armada.</p>
+                
+                <h3>¿Quiénes eran los Tupamaros?</h3>
+                <p>El <strong>Movimiento de Liberación Nacional (MLN)</strong>, conocido como <strong>Tupamaros</strong>, fue una organización guerrillera urbana que surgió en esta época. Su nombre honraba a Túpac Amaru, líder indígena que luchó contra los españoles en el siglo XVIII.</p>
+                
+                <div class="image-container">
+                    <img src="https://cdf.montevideo.gub.uy/sites/cdf.montevideo.gub.uy/files/catalogo/originales/0090_89aFPCT.jpg" alt="Tupamaros en Uruguay">
+                    <p class="caption">Los Tupamaros fueron una organización que optó por la lucha armada</p>
+                </div>
+                
+                <div class="highlight">
+                    <h4>¿Por qué eligieron la lucha armada?</h4>
+                    <p>Los Tupamaros creían que:</p>
+                    <ul>
+                        <li>Las vías pacíficas y electorales no funcionaban para cambiar el sistema</li>
+                        <li>La violencia era necesaria para lograr una revolución</li>
+                        <li>Inspirándose en Cuba, pensaban que un pequeño grupo podía desencadenar un cambio grande</li>
+                        <li>La situación de injusticia social justificaba medios extremos</li>
+                    </ul>
+                </div>
+                
+                <h3>Las primeras acciones</h3>
+                <p>Al principio, los Tupamaros realizaron acciones simbólicas:</p>
+                <ul>
+                    <li>Robo de armas y dinero para financiar la organización</li>
+                    <li>Denuncia de negocios ilegales de políticos y empresarios</li>
+                    <li>Acciones de propaganda para dar a conocer sus ideas</li>
+                    <li>Secuestro de figuras públicas para intercambiar por presos políticos</li>
+                </ul>
+                
+                <h3>Consecuencias del surgimiento de los Tupamaros</h3>
+                <p>La aparición de los Tupamaros tuvo importantes consecuencias:</p>
+                <ul>
+                    <li>Aumentó la polarización política en el país</li>
+                    <li>Justificó una mayor represión por parte del gobierno</li>
+                    <li>Contribuyó al clima de violencia que llevaría al golpe de Estado de 1973</li>
+                    <li>Dividió a la izquierda uruguaya entre quienes apoyaban y rechazaban la lucha armada</li>
+                </ul>
+                
+                <div class="highlight">
+                    <h4>Reflexión histórica</h4>
+                    <p>Hoy, los historiadores analizan este período con cuidado. Algunos ven a los Tupamaros como idealistas que querían cambiar la sociedad, mientras que otros critican sus métodos violentos. Lo importante es entender el contexto en que surgieron: una época de crisis donde muchos jóvenes sentían que no había otras opciones para cambiar las cosas.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="consecuencias" class="tab-content">
+            <div class="card">
+                <h2>Consecuencias de la crisis de los años 60</h2>
+                <p>Los eventos de la década de 1960 tuvieron profundas consecuencias para Uruguay, algunas de las cuales todavía se sienten hoy.</p>
+                
+                <div class="consequences">
+                    <div class="consequence-card">
+                        <h3>Crisis económica prolongada</h3>
+                        <p>La economía uruguaya no se recuperó rápidamente. La inflación, el desempleo y la pobreza siguieron siendo problemas graves durante muchos años.</p>
+                    </div>
+                    
+                    <div class="consequence-card">
+                        <h3>Pérdida de fe en la democracia</h3>
+                        <p>Muchos uruguayos comenzaron a dudar de que la democracia pudiera resolver los problemas del país, lo que facilitó el posterior golpe de Estado.</p>
+                    </div>
+                    
+                    <div class="consequence-card">
+                        <h3>Radicalización política</h3>
+                        <p>La sociedad se dividió entre quienes apoyaban soluciones más radicales (como los Tupamaros) y quienes preferían mantener el sistema.</p>
+                    </div>
+                    
+                    <div class="consequence-card">
+                        <h3>Preparación para la dictadura</h3>
+                        <p>El autoritarismo creciente del gobierno y la respuesta a la guerrilla prepararon el terreno para la dictadura cívico-militar que comenzaría en 1973.</p>
+                    </div>
+                </div>
+                
+                <h3>Línea de tiempo: De la crisis a la dictadura</h3>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h4>1958</h4>
+                            <p>El Partido Nacional gana las elecciones después de 93 años de gobierno colorado</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h4>1962</h4>
+                            <p>Segunda victoria del Partido Nacional. Se crea la CIDE para estudiar la crisis</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h4>1963</h4>
+                            <p>La CIDE presenta su informe con un plan de desarrollo a 10 años</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h4>1964-1966</h4>
+                            <p>Se forma la CNT, unificando el movimiento sindical</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h4>1965</h4>
+                            <p>Quiebra de bancos. Los Tupamaros adoptan su nombre completo</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h4>1968</h4>
+                            <p>El gobierno implementa "Medidas Prontas de Seguridad", aumentando la represión</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h4>1973</h4>
+                            <p>Golpe de Estado e inicio de la dictadura cívico-militar</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Comparación: Uruguay antes y después de los años 60</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Antes de los años 60</th>
+                        <th>Después de los años 60</th>
+                    </tr>
+                    <tr>
+                        <td>Economía</td>
+                        <td>Estable, "Suiza de América"</td>
+                        <td>En crisis, alta inflación</td>
+                    </tr>
+                    <tr>
+                        <td>Política</td>
+                        <td>Democracia consolidada</td>
+                        <td>Polarización y autoritarismo creciente</td>
+                    </tr>
+                    <tr>
+                        <td>Sociedad</td>
+                        <td>Clase media amplia</td>
+                        <td>Aumento de la pobreza y emigración</td>
+                    </tr>
+                    <tr>
+                        <td>Confianza institucional</td>
+                        <td>Alta confianza en las instituciones</td>
+                        <td>Desconfianza generalizada</td>
+                    </tr>
+                </table>
+                
+                <div class="highlight">
+                    <h4>¿Qué podemos aprender de esta historia?</h4>
+                    <p>La crisis de los años 60 nos enseña la importancia del diálogo, la búsqueda de acuerdos y la defensa de la democracia. Cuando los diferentes sectores de una sociedad no logran ponerse de acuerdo, todos pierden. La historia nos muestra que es mejor resolver los problemas mediante el diálogo y la participación de todos.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="cuestionario" class="tab-content">
+            <div class="card">
+                <h2>Cuestionario: ¿Cuánto sabes sobre Uruguay en los años 60?</h2>
+                <p>Responde las siguientes preguntas para poner a prueba tus conocimientos. Al final, recibirás una puntuación y recomendaciones.</p>
+                
+                <div id="quiz-container">
+                    <!-- Las preguntas se generarán con JavaScript -->
+                </div>
+                
+                <button id="submit-quiz" class="btn">Ver mis resultados</button>
+                
+                <div id="results" class="results" style="display: none;">
+                    <h2>¡Resultados!</h2>
+                    <div class="score-display" id="score">0/25</div>
+                    <p id="result-message"></p>
+                    <div class="recommendation" id="recommendation"></div>
+                    <button id="restart-quiz" class="btn">Volver a intentar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navegación por pestañas
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remover clase active de todas las pestañas y contenidos
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Agregar clase active a la pestaña clickeada
+                tab.classList.add('active');
+                
+                // Mostrar el contenido correspondiente
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Preguntas del cuestionario
+        const questions = [
+            {
+                question: "¿Qué partido ganó las elecciones en 1962?",
+                options: [
+                    "Partido Colorado",
+                    "Partido Nacional",
+                    "Frente Amplio",
+                    "Unión Popular"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué significan las siglas CIDE?",
+                options: [
+                    "Comisión de Investigación Democrática Estatal",
+                    "Comisión de Investigación y Desarrollo Económico",
+                    "Convención Internacional de Desarrollo Económico",
+                    "Comité de Inversión y Desarrollo Estatal"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué problema afectaba al agro según la CIDE?",
+                options: [
+                    "Falta de lluvias",
+                    "Latifundio y minifundio",
+                    "Exceso de tecnología",
+                    "Demasiados pequeños productores"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué organización sindical se formó entre 1964 y 1966?",
+                options: [
+                    "PIT-CNT",
+                    "Convención Nacional de Trabajadores (CNT)",
+                    "Federación de Sindicatos del Uruguay",
+                    "Unión de Trabajadores del Uruguay"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué evento organizó la CNT para buscar soluciones a la crisis?",
+                options: [
+                    "La Huelga General",
+                    "El Congreso del Pueblo",
+                    "La Marcha por el Trabajo",
+                    "El Encuentro Nacional"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué proponía el Congreso del Pueblo?",
+                options: [
+                    "Privatizar todas las empresas",
+                    "Reforma agraria y nacionalización de la banca",
+                    "Aumentar los impuestos a los trabajadores",
+                    "Reducir los salarios"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué significa MLN?",
+                options: [
+                    "Movimiento Liberal Nacional",
+                    "Movimiento de Liberación Nacional",
+                    "Movimiento Laborista Nacional",
+                    "Movimiento por la Libertad Nacional"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Por qué los Tupamaros eligieron ese nombre?",
+                options: [
+                    "En honor a un político uruguayo",
+                    "Por el sonido que hacían sus armas",
+                    "En honor a Túpac Amaru",
+                    "Eran las iniciales de sus fundadores"
+                ],
+                correct: 2
+            },
+            {
+                question: "¿Qué inspiró a los Tupamaros?",
+                options: [
+                    "La Revolución Francesa",
+                    "La Revolución Cubana",
+                    "La Independencia de Estados Unidos",
+                    "La Revolución Industrial"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué problema tenía la industria uruguaya según la CIDE?",
+                options: [
+                    "Atraso tecnológico",
+                    "Exceso de trabajadores",
+                    "Falta de materias primas",
+                    "Demasiada competencia extranjera"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿En qué año se realizó el censo que mostró 2.595.600 habitantes?",
+                options: [
+                    "1958",
+                    "1963",
+                    "1967",
+                    "1971"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué partido formó una alianza llamada Fidel?",
+                options: [
+                    "Partido Colorado",
+                    "Partido Nacional",
+                    "Partido Comunista",
+                    "Unión Cívica"
+                ],
+                correct: 2
+            },
+            {
+                question: "¿Qué significa 'nacionalización de la banca'?",
+                options: [
+                    "Que los bancos cierren",
+                    "Que los bancos pasen a manos de capitales nacionales",
+                    "Que los bancos reduzcan sus servicios",
+                    "Que los bancos aumenten las tasas de interés"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué sucedió en 1965 que empeoró la crisis?",
+                options: [
+                    "Una sequía prolongada",
+                    "Muchos bancos quebraron",
+                    "Una epidemia de gripe",
+                    "Una guerra con Argentina"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Cuántos años debía durar el plan de la CIDE?",
+                options: [
+                    "5 años",
+                    "10 años",
+                    "15 años",
+                    "20 años"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué es un 'negociado' según el texto?",
+                options: [
+                    "Un negocio pequeño",
+                    "Un negocio legal",
+                    "Un negocio ilegal de grandes proporciones",
+                    "Un negocio familiar"
+                ],
+                correct: 2
+            },
+            {
+                question: "¿Qué sector se separó de la Unión Cívica para formar el PDC?",
+                options: [
+                    "Sector conservador",
+                    "Sector progresista",
+                    "Sector militar",
+                    "Sector religioso"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué era el 'segundo colegiado blanco'?",
+                options: [
+                    "Un sistema de gobierno del Partido Nacional (1963-1967)",
+                    "Un edificio gubernamental",
+                    "Una reforma educativa",
+                    "Un tratado internacional"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿Qué problema identificó la CIDE en el Estado uruguayo?",
+                options: [
+                    "Falta de empleados públicos",
+                    "Número excesivo de empleados públicos",
+                    "Corrupción generalizada",
+                    "Falta de leyes"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué hicieron los ganaderos según el texto?",
+                options: [
+                    "Invirtieron en tecnología",
+                    "No invirtieron en mejorar sus tierras",
+                    "Contrataron más trabajadores",
+                    "Exportaron más carne"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué hicieron los comerciantes y banqueros según el texto?",
+                options: [
+                    "Depositaron dinero en el exterior",
+                    "Invertieron en educación",
+                    "Crearon nuevas empresas",
+                    "Aumentaron los salarios"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿Qué reforzaron los trabajadores para protestar?",
+                options: [
+                    "Las organizaciones sindicales",
+                    "Los partidos políticos",
+                    "Las fuerzas armadas",
+                    "Las iglesias"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿Qué significa 'disidente'?",
+                options: [
+                    "Que está de acuerdo",
+                    "Que no está de acuerdo",
+                    "Que es indiferente",
+                    "Que es extranjero"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué significa 'minifundio'?",
+                options: [
+                    "Campo de tamaño pequeño",
+                    "Campo de tamaño grande",
+                    "Campo sin dueño",
+                    "Campo con muchos animales"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿Qué significa 'clima social'?",
+                options: [
+                    "El estado del tiempo",
+                    "El estado de ánimo que predomina en la gente",
+                    "La temperatura promedio",
+                    "Las estaciones del año"
+                ],
+                correct: 1
+            }
+        ];
+        
+        // Generar el cuestionario
+        const quizContainer = document.getElementById('quiz-container');
+        
+        questions.forEach((q, index) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+            
+            questionDiv.innerHTML = `
+                <h3>${index + 1}. ${q.question}</h3>
+                <div class="options">
+                    ${q.options.map((option, i) => `
+                        <div class="option" data-question="${index}" data-option="${i}">${option}</div>
+                    `).join('')}
+                </div>
+            `;
+            
+            quizContainer.appendChild(questionDiv);
+        });
+        
+        // Manejar selección de opciones
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const questionIndex = this.getAttribute('data-question');
+                const optionIndex = this.getAttribute('data-option');
+                
+                // Remover selección previa en esta pregunta
+                document.querySelectorAll(`.option[data-question="${questionIndex}"]`).forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Seleccionar esta opción
+                this.classList.add('selected');
+            });
+        });
+        
+        // Calcular resultados
+        document.getElementById('submit-quiz').addEventListener('click', function() {
+            let score = 0;
+            const userAnswers = [];
+            
+            questions.forEach((q, index) => {
+                const selectedOption = document.querySelector(`.option.selected[data-question="${index}"]`);
+                
+                if (selectedOption) {
+                    const selectedIndex = parseInt(selectedOption.getAttribute('data-option'));
+                    userAnswers.push(selectedIndex);
+                    
+                    if (selectedIndex === q.correct) {
+                        score++;
+                    }
+                } else {
+                    userAnswers.push(null);
+                }
+            });
+            
+            // Mostrar resultados
+            document.getElementById('score').textContent = `${score}/${questions.length}`;
+            
+            let message = "";
+            let recommendation = "";
+            
+            if (score <= 5) {
+                message = "¡Recién estás comenzando! No te preocupes, la historia uruguaya es fascinante y con un poco más de estudio podrás dominarla.";
+                recommendation = "Te recomiendo volver a leer los primeros temas y hacer un resumen con las ideas principales. ¡No te rindas!";
+            } else if (score <= 10) {
+                message = "¡Vas por buen camino! Ya conoces algunos conceptos básicos sobre Uruguay en los años 60.";
+                recommendation = "Intenta relacionar los acontecimientos históricos con lo que pasaba en el mundo en esa época. ¡Sigue así!";
+            } else if (score <= 15) {
+                message = "¡Buen trabajo! Tienes un conocimiento sólido sobre este período histórico.";
+                recommendation = "Para profundizar, podrías investigar cómo afectó la crisis de los 60 a la vida cotidiana de las personas.";
+            } else if (score <= 20) {
+                message = "¡Excelente! Demuestras un gran entendimiento de la historia uruguaya de los años 60.";
+                recommendation = "Ahora podrías comparar este período con otros momentos históricos de Uruguay o de América Latina.";
+            } else {
+                message = "¡Increíble! Eres un experto en la historia uruguaya de los años 60.";
+                recommendation = "Podrías compartir tus conocimientos con tus compañeros o investigar sobre personajes específicos de esta época.";
+            }
+            
+            document.getElementById('result-message').textContent = message;
+            document.getElementById('recommendation').textContent = recommendation;
+            
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('quiz-container').style.display = 'none';
+            this.style.display = 'none';
+            
+            // Desplazarse a los resultados
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Reiniciar cuestionario
+        document.getElementById('restart-quiz').addEventListener('click', function() {
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('quiz-container').style.display = 'block';
+            document.getElementById('submit-quiz').style.display = 'block';
+            
+            document.getElementById('cuestionario').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+<footer style="background-color: #2c3e50; color: white; text-align: center; padding: 2rem 0; margin-top: 2rem;">
+    <p>Proyecto Educativo de Historia Uruguaya - Sin Fines de Lucro</p>
+    <p>Director: Francesca Figueroa | Ayudante y Programador: Alexandre Figueroa</p>
+    <p>Todos los derechos reservados © 2025</p>
+    <a href="#top" style="color: #3498db; text-decoration: none; font-size: 0.9rem; margin-top: 0.5rem; display: inline-block;">Volver arriba ↑</a>
+</footer>
+</body>
+</html>
